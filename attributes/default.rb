@@ -32,6 +32,9 @@ when "freebsd"
   default['java']['java_home'] = "/usr/local/openjdk#{java['jdk_version']}"
 when "arch"
   default['java']['java_home'] = "/usr/lib/jvm/java-#{java['jdk_version']}-openjdk"
+when "windows"
+  # 64bit windows path is overriden in recipe
+  default['java']['java_home'] = "C:\\Progra~1\\Java\\fjre6"    
 else
   default['java']['java_home'] = "/usr/lib/jvm/default-java"
 end
@@ -53,3 +56,20 @@ default['java']['jdk']['7']['x86_64']['checksum'] = '411a204122c5e45876d6edae1a0
 # i586
 default['java']['jdk']['7']['i586']['url'] = 'http://download.example.com/otn-pub/java/jdk/7u2-b13/jdk-7u2-linux-i586.tar.gz'
 default['java']['jdk']['7']['i586']['checksum'] = '74faad48fef2c368276dbd1fd6c02520b0e9ebdcb1621916c1af345fc3ba65d1'
+
+# Windows 64 -6 
+default['java']['jdk']['6']['win64']['url'] = 'http://download.example.com/'
+default['java']['jdk']['6']['win64']['checksum'] = 'setme'
+# Windows 64 - 7
+default['java']['jdk']['7']['win64']['url'] = 'http://download.example.com/'
+default['java']['jdk']['7']['win64']['checksum'] = 'setme'
+
+# Windows 32 -6 
+default['java']['jdk']['6']['win32']['url'] = 'http://download.example.com/'
+default['java']['jdk']['6']['win32']['checksum'] = 'setme'
+# Windows 32 - 7
+default['java']['jdk']['7']['win32']['url'] = 'http://download.example.com/'
+default['java']['jdk']['7']['win32']['checksum'] = 'setme'
+
+
+
