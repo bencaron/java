@@ -45,6 +45,7 @@ Platform
 * CentOS, Red Hat, Fedora, Scientific, Amazon
 * ArchLinux
 * FreeBSD
+* Windows (tested only on Windows 2008 R2)
 
 Attributes
 ==========
@@ -103,6 +104,13 @@ oracle_i386
 This recipe installs the 32-bit Java virtual machine without setting
 it as the default. This can be useful if you have applications on the
 same machine that require different versions of the JVM.
+
+windows
+-------
+
+This recipe installs either the 32 or 64-bit Java virtual machine from 
+Oracle's .exe installer. You must setup the url/checksum for either the
+win32 or win64 arch as described above for the oracle flavor.
 
 Resources/Providers
 ===================
