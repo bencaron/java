@@ -26,9 +26,11 @@ if jdk_version.instance_of? Fixnum
   jdk_version = jdk_version.to_s
 end
 
-if node['java']['arch'] == 64 
-  node['java']['java_home'] = "C:\Progra~2\Java\jre6"
-end
+# FIXME this does nothing: should be used to set the java-home
+# correctly for 32-bit java installed on 64bit OS
+# if node['java']['arch'] == "win62" and node ??? is 64 bit 
+#   node['java']['java_home'] = "C:\Progra~2\Java\jre6"
+# end
 
 case jdk_version
 when "6"
