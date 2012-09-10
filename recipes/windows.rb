@@ -43,8 +43,13 @@ if installer_url =~ /example.com/
   Chef::Application.fatal!("You must change the download link to your private repository. You can no longer download java directly from http://download.oracle.com without a web broswer")
 end
 
-# FIXME: set this to the correct name for full idempotency
-windows_package "Java " do
+# Get the right package name for idempotency
+installer_url =~ /jre-(\d)u(\d{2})-windows-x(\d\d)\.exe$/
+package_name = "Java(TM) #{jdk_version} Update #{$2}(#{$3}-bit)"
+
+log("Installing package Java (#{package_name}) from url = #{installer_url}")
+
+windows_package package_name do
   source installer_url
   installer_type :custom
   options "/quiet" 
@@ -57,8 +62,6 @@ env "JAVA_HOME" do
   value node['java']['java_home']
 end
 
-env "PATH" do
-  action :modify
-  delim ';'
-  value "#{node['java']['java_home']}\\bin"
+windows_path  "#{node['java']['java_home']}\\bin" do
+  action :add
 end
