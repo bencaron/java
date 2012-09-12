@@ -34,7 +34,7 @@ when "arch"
   default['java']['java_home'] = "/usr/lib/jvm/java-#{java['jdk_version']}-openjdk"
 when "windows"
   # 64bit windows path is overriden in recipe
-  default['java']['java_home'] = "C:\\Progra~1\\Java\\fjre6"    
+  default['java']['java_home'] = "C:\\Progra~1\\Java\\jre6"    
 else
   default['java']['java_home'] = "/usr/lib/jvm/default-java"
 end
